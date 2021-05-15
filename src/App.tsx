@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {increment, decrement} from "./store/store";
+import {increment, incrementBy} from "./store/store";
 import './App.css';
 
 function App() {
@@ -14,8 +14,7 @@ function App() {
       <h1> The count is: {count}</h1>
       <input type="text" onChange={(e) => setContext(e.target.value)}></input>
       <button onClick={() => dispatch(increment())}> Increment </button>
-      <button onClick={() => dispatch(decrement())}> Decrement </button>
-      <button onClick={() => console.log(context)}> Print </button>
+      <button onClick={() => dispatch(incrementBy(5))}> Increment by 5 </button>
     </div>
   );
 }
