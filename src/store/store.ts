@@ -1,19 +1,24 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-interface ChatModel {
-  time: string;
+export interface ChatModel {
+  user: string;
   context: string;
+  createdAt: any;
 }
 
-const counterSlice = createSlice({
-  name: "counter",
-  initialState: 0,
+const chatState: ChatModel[] = []
+
+const chatSlice = createSlice({
+  name: "chat",
+  initialState: chatState,
   reducers: {
-    increment: state =>  state += 1,
-    incrementBy: (state, action) => state += action.payload
+    addChat: (state, action) => {
+      state.push(action.payload);
+      }
+    }
   }
-});
+);
 
-export const {increment, incrementBy} = counterSlice.actions;
+export const {addChat} = chatSlice.actions;
 
-export default counterSlice.reducer;
+export default chatSlice.reducer;
