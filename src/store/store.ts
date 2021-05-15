@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+interface ChatModel {
+  time: string;
+  context: string;
+}
+
 const counterSlice = createSlice({
   name: "counter",
   initialState: 0,
